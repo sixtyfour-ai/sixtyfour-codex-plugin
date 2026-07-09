@@ -1,68 +1,80 @@
-# How To Use This Template
+# Sixtyfour Codex Plugin
 
-> Remove after setting up a new repo from this template
-
-[Watch demo on Loom](https://www.loom.com/share/372d7dd58d254b63b751fde366ab774c)
-
-# [Project Name]
-
-> One-line description of what this project does and who it's for.
+Codex plugin that connects to Sixtyfour's hosted [Intelligence MCP server](https://docs.sixtyfour.ai/developer-tools/mcp-setup). Search and enrich people and companies, find emails and phones, reverse-lookup contacts, and check credit balance — all from Codex.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-## Overview
+## What you get
 
-<!-- Replace this with a 2–3 sentence description of the project. What problem does it solve? What does a user get out of it? -->
+This plugin bundles the remote `sixtyfour-intelligence` MCP server at `https://mcp.sixtyfour.ai/mcp`. It does not ship server code; Codex talks to the hosted endpoint.
 
-## Getting Started
+| Capability | Examples |
+| --- | --- |
+| Company search | Filterable company search, field exploration, detail expansion |
+| People search | Filterable people search, field exploration, detail expansion |
+| Enrichment | Company/people intelligence jobs, LinkedIn enrich |
+| Contact lookup | Find email/phone, reverse email/phone |
+| Account | Credit balance |
 
-### Prerequisites
+Full tool reference: [MCP setup docs](https://docs.sixtyfour.ai/developer-tools/mcp-setup).
 
-<!-- List what a user needs before they can run this project. Examples: -->
+## Install
 
-- Node.js 18+ or Python 3.10+
-- A Sixtyfour API key ([get one here](https://docs.sixtyfour.ai/get-api-key))
-
-### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/sixtyfour-ai/<repo-name>.git
-cd <repo-name>
-
-# Install dependencies (Node.js example)
-npm install
-
-# Copy the environment variable template
-cp .env.example .env
-```
-
-Then open `.env` and add your Sixtyfour API key:
-
-```
-SIXTYFOUR_API_KEY=your_api_key_here
-```
-
-### Running the project
+### From this GitHub repo (marketplace source)
 
 ```bash
-# Node.js example
-npm run dev
-
-# Python example
-python main.py
+codex plugin marketplace add sixtyfour-ai/sixtyfour-codex-plugin
 ```
 
-## Getting an API Key
+Then install **Sixtyfour** from the plugin directory in the ChatGPT desktop app (or your Codex plugin UI), and restart if prompted.
 
-To use this project you will need a Sixtyfour API key.
+### Local / repo marketplace
 
-1. Sign up or log in at [sixtyfour.ai](https://sixtyfour.ai)
-2. Follow the instructions at [docs.sixtyfour.ai/get-api-key](https://docs.sixtyfour.ai/get-api-key)
+This repo includes [`.agents/plugins/marketplace.json`](.agents/plugins/marketplace.json). From a checkout:
+
+```bash
+codex plugin marketplace add ./path/to/sixtyfour-codex-plugin
+```
+
+Or point a personal marketplace entry at this plugin folder (see [Build plugins](https://developers.openai.com/codex/plugins/build)).
+
+## Authentication
+
+The intelligence server requires a Sixtyfour account. Two options:
+
+### OAuth (default)
+
+The bundled [`.mcp.json`](.mcp.json) uses the bare MCP URL. On first use, Codex prompts you to sign in via browser OAuth — same flow as the [Codex section of our MCP docs](https://docs.sixtyfour.ai/developer-tools/mcp-setup#codex).
+
+### API key
+
+If you prefer an API key instead of OAuth, override the server URL to include your key:
+
+```text
+https://mcp.sixtyfour.ai/mcp?api_key=YOUR_API_KEY
+```
+
+Get a key at [docs.sixtyfour.ai/get-api-key](https://docs.sixtyfour.ai/get-api-key) or [app.sixtyfour.ai/keys](https://app.sixtyfour.ai/keys).
+
+Do not commit API keys. See [`.env.example`](.env.example) if you keep a local key for overrides.
+
+## Example prompts
+
+- "Search for US SaaS companies with 100–5000 employees."
+- "Research Sixtyfour — return headquarters, headcount, funding stage, and key executives."
+- "Enrich this person: Saarth Shah, CEO & Co-Founder at Sixtyfour."
+- "Find the CTO and VP of Engineering at Sixtyfour."
+- "Find the work email for Saarth Shah at Sixtyfour."
+- "Who owns the email jane@acme.com?"
+- "How many Sixtyfour credits do I have left?"
+
+Enrichment `_start` tools create billable jobs. If a call times out, check status with `sixtyfour_enrichment_job_status` before retrying.
 
 ## Documentation
 
-Full documentation for the Sixtyfour platform is available at [docs.sixtyfour.ai](https://docs.sixtyfour.ai/introduction).
+- [MCP setup](https://docs.sixtyfour.ai/developer-tools/mcp-setup)
+- [API docs](https://docs.sixtyfour.ai/introduction)
+- [Get an API key](https://docs.sixtyfour.ai/get-api-key)
 
 ## Contributing
 
@@ -75,31 +87,3 @@ This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.
 ## License
 
 Distributed under the MIT License. See [LICENSE](LICENSE) for details.
-
-<details>
-<summary><strong>Repo Setup Checklist (for Sixtyfour team — remove this section before publishing)</strong></summary>
-
-When creating a new repo from this template, complete the following steps in **Settings**:
-
-**General**
-- [ ] Set the repository description and topic tags
-- [ ] Uncheck **Wikis**
-- [ ] Uncheck **Projects**
-- [ ] Check **Automatically delete head branches**
-
-**Branch protection — `main`**
-- [ ] Go to **Branches → Add classic branch protection rule** for `main`
-- [ ] Enable **Require a pull request before merging**
-- [ ] Set **Required approvals** to `1`
-- [ ] Enable **Require status checks to pass before merging** (if applicable)
-- [ ] Enable **Do not allow bypassing the above settings**
-
-**After setup**
-- [ ] Replace all `[placeholder]` values in this README
-- [ ] Update `.github/ISSUE_TEMPLATE/config.yml` — change the security `url` to point to this repo's security policy (e.g. `https://github.com/sixtyfour-ai/<repo-name>/security/policy`)
-- [ ] Copy `.env.example` and create a `.env` file with any project-specific environment variables.
-- [ ] Delete this checklist section from the README
-- [ ] Remove how to use this template video link
-
-</details>
-

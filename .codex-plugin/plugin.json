@@ -1,0 +1,45 @@
+{
+  "name": "sixtyfour",
+  "version": "1.0.0",
+  "description": "Structured data enrichment on people and companies for GTM, compliance/AML-KYB, and investigations workflows.",
+  "author": {
+    "name": "Sixtyfour AI",
+    "email": "support@sixtyfour.ai",
+    "url": "https://sixtyfour.ai"
+  },
+  "homepage": "https://sixtyfour.ai",
+  "repository": "https://github.com/sixtyfour-ai/sixtyfour-codex-plugin",
+  "license": "MIT",
+  "keywords": [
+    "sixtyfour",
+    "people-intelligence",
+    "company-intelligence",
+    "enrichment",
+    "prospecting",
+    "data-enrichment",
+    "mcp",
+    "codex"
+  ],
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Sixtyfour",
+    "shortDescription": "Data enrichment and intelligence on people and companies",
+    "longDescription": "Connect Codex to Sixtyfour's hosted Intelligence MCP server. Search and enrich people and companies, find emails and phones, reverse-lookup contacts, and check credit balance — authenticated via OAuth or API key.",
+    "developerName": "Sixtyfour AI",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://sixtyfour.ai",
+    "privacyPolicyURL": "https://sixtyfour.ai/legal/privacy-policy",
+    "termsOfServiceURL": "https://sixtyfour.ai/legal/terms-of-service",
+    "defaultPrompt": [
+      "Search for US SaaS companies with 100–5000 employees.",
+      "Research Sixtyfour — return headquarters, headcount, funding stage, and key executives.",
+      "Enrich this person: Saarth Shah, CEO & Co-Founder at Sixtyfour.",
+      "Find the work email for Saarth Shah at Sixtyfour.",
+      "How many Sixtyfour credits do I have left?"
+    ],
+    "brandColor": "#0A0A0A",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png"
+  }
+}
