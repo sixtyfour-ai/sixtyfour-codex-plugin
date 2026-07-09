@@ -54,18 +54,16 @@ If you prefer an API key instead of OAuth, override the server URL to include yo
 https://mcp.sixtyfour.ai/mcp?api_key=YOUR_API_KEY
 ```
 
-Get a key at [docs.sixtyfour.ai/get-api-key](https://docs.sixtyfour.ai/get-api-key) or [app.sixtyfour.ai/keys](https://app.sixtyfour.ai/keys).
+Get a key at [app.sixtyfour.ai/keys](https://app.sixtyfour.ai/keys).
 
 Do not commit API keys. See [`.env.example`](.env.example) if you keep a local key for overrides.
 
 ## Example prompts
 
-- "Search for US SaaS companies with 100–5000 employees."
 - "Research Sixtyfour — return headquarters, headcount, funding stage, and key executives."
 - "Enrich this person: Saarth Shah, CEO & Co-Founder at Sixtyfour."
-- "Find the CTO and VP of Engineering at Sixtyfour."
+- "Who are the founders of Sixtyfour?"
 - "Find the work email for Saarth Shah at Sixtyfour."
-- "Who owns the email jane@acme.com?"
 - "How many Sixtyfour credits do I have left?"
 
 Enrichment `_start` tools create billable jobs. If a call times out, check status with `sixtyfour_enrichment_job_status` before retrying.
