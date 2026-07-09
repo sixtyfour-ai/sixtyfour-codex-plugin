@@ -5,7 +5,7 @@
   "author": {
     "name": "Sixtyfour AI",
     "email": "support@sixtyfour.ai",
-    "url": "https://docs.sixtyfour.ai/developer-tools/mcp-setup"
+    "url": "https://sixtyfour.ai"
   },
   "homepage": "https://sixtyfour.ai",
   "repository": "https://github.com/sixtyfour-ai/sixtyfour-codex-plugin",
@@ -26,7 +26,7 @@
     "shortDescription": "Intelligence infrastructure for people and entities. Deep research on any person or company at scale.",
     "longDescription": "Connect Codex to Sixtyfour's hosted Intelligence MCP server. Search and enrich people and companies, find emails and phones, reverse-lookup contacts, and check credit balance — authenticated via OAuth or API key.",
     "developerName": "Sixtyfour AI",
-    "category": "Research",
+    "category": "Data & Analytics",
     "capabilities": [
       "Read",
       "Write"

@@ -1,6 +1,7 @@
 {
   "mcpServers": {
     "sixtyfour-intelligence": {
+      "type": "http",
       "url": "https://mcp.sixtyfour.ai/mcp"
     }
   }
