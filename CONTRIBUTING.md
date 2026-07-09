@@ -68,7 +68,7 @@ Before opening a PR against `sixtyfour-codex-plugin`, verify your local edits wo
 codex plugin marketplace add ./path/to/your/checkout/sixtyfour-codex-plugin
 ```
 
-This reads the bundled [`.agents/plugins/marketplace.json`](.agents/plugins/marketplace.json) from disk, so Codex picks up your uncommitted changes immediately — no push required. Restart the ChatGPT desktop app (or your Codex plugin UI) to pick up further edits after the initial install.
+This reads the bundled [`.agents/plugins/marketplace.json`](.agents/plugins/marketplace.json) from disk, so Codex picks up your uncommitted changes immediately — no push required. Start a new `codex` session to pick up further edits after the initial install.
 
 ## Questions?
 
