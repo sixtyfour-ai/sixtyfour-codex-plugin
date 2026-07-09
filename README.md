@@ -4,19 +4,11 @@ Codex plugin that connects to Sixtyfour's hosted [Intelligence MCP server](https
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-## What you get
+## Tools
 
 This plugin bundles the remote `sixtyfour-intelligence` MCP server at `https://mcp.sixtyfour.ai/mcp`. It does not ship server code; Codex talks to the hosted endpoint.
 
-| Capability | Examples |
-| --- | --- |
-| Company search | Filterable company search, field exploration, detail expansion |
-| People search | Filterable people search, field exploration, detail expansion |
-| Enrichment | Company/people intelligence jobs, LinkedIn enrich |
-| Contact lookup | Find email/phone, reverse email/phone |
-| Account | Credit balance |
-
-Full tool reference: [MCP setup docs](https://docs.sixtyfour.ai/developer-tools/mcp-setup).
+See the full tool reference in our [MCP setup docs](https://docs.sixtyfour.ai/developer-tools/mcp-setup#intelligence-mcp-reference).
 
 ## Install
 
