@@ -60,6 +60,16 @@ Open a [GitHub Issue](../../issues) with the label `enhancement` and describe:
 - You will need a Sixtyfour API key to run most projects locally. See [Getting an API Key](https://docs.sixtyfour.ai/get-api-key).
 - Refer to the [Sixtyfour documentation](https://docs.sixtyfour.ai/introduction) for platform details.
 
+### Testing plugin changes locally
+
+Before opening a PR against `sixtyfour-codex-plugin`, verify your local edits work by installing straight from your checkout instead of from GitHub:
+
+```bash
+codex plugin marketplace add ./path/to/your/checkout/sixtyfour-codex-plugin
+```
+
+This reads the bundled [`.agents/plugins/marketplace.json`](.agents/plugins/marketplace.json) from disk, so Codex picks up your uncommitted changes immediately — no push required. Restart the ChatGPT desktop app (or your Codex plugin UI) to pick up further edits after the initial install.
+
 ## Questions?
 
 If you have a question that isn't a bug or feature request, feel free to open a discussion or reach out at [support@sixtyfour.ai](mailto:support@sixtyfour.ai).

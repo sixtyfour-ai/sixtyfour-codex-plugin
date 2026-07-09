@@ -20,23 +20,27 @@ Full tool reference: [MCP setup docs](https://docs.sixtyfour.ai/developer-tools/
 
 ## Install
 
-### From this GitHub repo (marketplace source)
+Installing has two steps: register this repo as a plugin marketplace, then install the plugin from it. This repo is public, so both steps work directly against GitHub — no listing in OpenAI's curated Plugins Directory required.
 
-```bash
-codex plugin marketplace add sixtyfour-ai/sixtyfour-codex-plugin
-```
+### Codex CLI
 
-Then install **Sixtyfour** from the plugin directory in the ChatGPT desktop app (or your Codex plugin UI), and restart if prompted.
+1. Register the marketplace:
+   ```bash
+   codex plugin marketplace add sixtyfour-ai/sixtyfour-codex-plugin
+   ```
+2. Install the plugin from it:
+   ```bash
+   codex plugin add sixtyfour@sixtyfour
+   ```
+3. Start a **new** `codex` session — plugins load at session start, so a session already running before you installed won't pick it up.
 
-### Local / repo marketplace
+Check anytime with `codex plugin list`.
 
-This repo includes [`.agents/plugins/marketplace.json`](.agents/plugins/marketplace.json). From a checkout:
+### ChatGPT desktop app
 
-```bash
-codex plugin marketplace add ./path/to/sixtyfour-codex-plugin
-```
-
-Or point a personal marketplace entry at this plugin folder (see [Build plugins](https://developers.openai.com/codex/plugins/build)).
+1. Run step 1 above from a terminal to register the marketplace (or add a personal marketplace entry — see [Build plugins](https://developers.openai.com/codex/plugins/build)).
+2. Open the plugin directory (Work or Codex → Plugins), find **Sixtyfour**, and install it.
+3. Restart the app if prompted.
 
 ## Authentication
 
@@ -44,7 +48,17 @@ The intelligence server requires a Sixtyfour account. Two options:
 
 ### OAuth (default)
 
-The bundled [`.mcp.json`](.mcp.json) uses the bare MCP URL. On first use, Codex prompts you to sign in via browser OAuth — same flow as the [Codex section of our MCP docs](https://docs.sixtyfour.ai/developer-tools/mcp-setup#codex).
+The bundled [`.mcp.json`](.mcp.json) uses the bare MCP URL, so on first use Codex needs to sign you in via browser OAuth — same flow as the [Codex section of our MCP docs](https://docs.sixtyfour.ai/developer-tools/mcp-setup#codex).
+
+**Codex CLI:** you'll see a warning like `sixtyfour-intelligence MCP server is not logged in` the first time it tries to start. Run:
+
+```bash
+codex mcp login sixtyfour-intelligence
+```
+
+This opens the browser sign-in flow. Once it completes, start a new `codex` session so the MCP server starts up with the stored credentials.
+
+**ChatGPT desktop app:** the sign-in prompt appears automatically the first time you use a Sixtyfour tool — no manual login command needed.
 
 ### API key
 
