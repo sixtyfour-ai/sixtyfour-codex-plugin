@@ -64,6 +64,20 @@ Get a key at [app.sixtyfour.ai/keys](https://app.sixtyfour.ai/keys).
 
 Do not commit API keys. See [`.env.example`](.env.example) if you keep a local key for overrides.
 
+### Reconnecting / refreshing a stale session
+
+How you re-authenticate depends on how you installed:
+
+- **Plugin install (Codex CLI):** run `codex mcp logout sixtyfour-intelligence` followed by `codex mcp login sixtyfour-intelligence`, then start a new session.
+- **Plugin install (ChatGPT desktop app):** there's no in-chat reconnect command. Open **Apps/Connectors**, find Sixtyfour, and choose **Reconnect/Sign in**.
+- **Manual `config.toml` install (`command = "npx"`, `args = [... "mcp-remote" ...]`):** this path doesn't go through Codex's own auth manager — `mcp-remote` caches its OAuth token locally at `~/.mcp-auth/mcp-remote-<version>/`, so `codex mcp login`/`logout` don't apply. If sign-in seems stuck or the token has gone stale, clear the cache and restart Codex to trigger a fresh browser flow:
+
+  ```bash
+  rm -rf ~/.mcp-auth
+  ```
+
+  (This also fixes the common case where an `mcp-remote@latest` version bump silently orphans the previous token cache.)
+
 ## Example prompts
 
 - "Research Sixtyfour — return headquarters, headcount, funding stage, and key executives."
